@@ -1,21 +1,18 @@
 'use strict';
 
 {
-	const goodName = 'Ноутбук',
-		quantityOfGoods = 10,
-		categoryOfGoods = 'Компьютеры',
-		goodPrice = 30000;
+	const goodName = prompt('Введите название товара', 'Ноутбук'),
+		quantityOfGoods = +prompt('Введите количество товара', '10'),
+		categoryOfGoods = prompt('Введите категорию товара', 'Компьютеры'),
+		goodPrice = +prompt('Введите цену товара', '10000');
 
-	console.log('Название товара : ' + goodName);
-	console.log('Общая сумма товара : ' + quantityOfGoods * goodPrice);
+	console.log(
+		`Цена - тип данных - ${typeof goodPrice}, Количество товара - тип данных - ${typeof quantityOfGoods}`
+	);
+	console.log(
+		`На складе ${quantityOfGoods} шт товара "${goodName}" на сумму ${
+			goodPrice * quantityOfGoods
+		} деревянных`
+	);
 }
-
-{
-	const goodName = 'Монитор',
-		quantityOfGoods = 5,
-		categoryOfGoods = 'Комплектующие к компьютеру',
-		goodPrice = 3000;
-
-	console.log('Название товара : ' + goodName);
-	console.log('Общая сумма товара : ' + quantityOfGoods * goodPrice);
-}
+console.log('__________________________________________');
