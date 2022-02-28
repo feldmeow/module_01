@@ -1,0 +1,7 @@
+'use strict';
+for (let i = 1; i <= 10; i++) {
+	console.log('_______________________________');
+	for (let k = 1; k <= 10; k++) {
+		console.log(`${i} в степени ${k} равно ${i ** k}`);
+	}
+}
