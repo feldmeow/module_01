@@ -1,7 +1,16 @@
 'use strict';
 
 const isNumber = function (n) {
-	return !isNaN(parseFloat(n));
+	if (isNaN(parseFloat(n))) {
+		return false;
+	} else return true;
+};
+
+const isOver = (num, retry) => {
+	if (num === null) {
+		retry();
+		return true;
+	} else return false;
 };
 
 const generateHiddenNumber = () => {
@@ -38,24 +47,24 @@ const isRetry = () => {
 
 const start = () => {
 	let count = 10;
-	let currentNumber;
+	let currentNumber, endGame;
 	const hiddenNumber = generateHiddenNumber();
-	st: while (count > 0) {
+	st: do {
 		currentNumber = getNumber(count);
 		count--;
-		if (currentNumber === null) {
+		endGame = isOver(currentNumber, isRetry);
+		if (endGame) {
+			break;
+		}
+		if (!isNumber(currentNumber)) {
+			alert('Введите число');
+			continue st;
+		}
+		if (!checkNumber(currentNumber, hiddenNumber)) {
 			isRetry();
 			break st;
-		} else if (!isNumber(currentNumber)) {
-			alert('Введи число!');
-			continue st;
-		} else {
-			if (!checkNumber(currentNumber, hiddenNumber)) {
-				isRetry();
-				break st;
-			}
 		}
-	}
+	} while (count > 0 && !endGame);
 	if (count < 1) {
 		alert('Попытки закончились!');
 		isRetry();
