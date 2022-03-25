@@ -15,7 +15,6 @@
   // генерируем число
   const generateEvenOdd = () => {
     const gen = Math.round(Math.random());
-    console.log(gen);
     if (gen === 0) return 'even';
     else return 'odd';
   };
