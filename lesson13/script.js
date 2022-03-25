@@ -1,3 +1,3 @@
 'use strict';
-const go = window.RPS();
+const go = window.RPS('EN');
 go();
